@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamro Laukahi - हाम्रो लौकाही | Beautiful Village in Nepal</title>
+    <meta name="description" content="Discover Hamro Laukahi, a beautiful village in Nepal where tradition meets modernity. Experience authentic Nepali culture, stunning landscapes, and warm community spirit.">
+    <meta name="keywords" content="Laukahi, Nepal village, Nepali culture, tourism, community, tradition, mountains, organic farming">
+    <meta name="author" content="Hamro Laukahi Village">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hamrolaukahi.com/">
+    <meta property="og:title" content="Hamro Laukahi - Beautiful Village in Nepal">
+    <meta property="og:description" content="Experience authentic Nepali village life, rich culture, and breathtaking landscapes in Hamro Laukahi.">
+    <meta property="og:image" content="https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hamrolaukahi.com/">
+    <meta property="twitter:title" content="Hamro Laukahi - Beautiful Village in Nepal">
+    <meta property="twitter:description" content="Experience authentic Nepali village life, rich culture, and breathtaking landscapes.">
+    <meta property="twitter:image" content="https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏔️</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-green: #2d5f3f;
+            --secondary-green: #4a7c59;
+            --accent-gold: #d4af37;
+            --light-green: #8fbc8f;
+            --cream: #faf8f5;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --nepal-blue: #003893;
+            --nepal-red: #dc143c;
+            --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+            --shadow-heavy: 0 8px 30px rgba(0,0,0,0.2);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Focus styles for accessibility */
+        *:focus {
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 2px;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid var(--accent-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-medium);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--accent-gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-green);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(45, 95, 63, 0.8), rgba(74, 124, 89, 0.6)), 
+                                   url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover;
+
+            display: flex;
+                      
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            animation: fadeInUp 1s ease 1.5s both;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 2.5s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--text-dark);
+        }
+
+        .btn-primary:hover {
+            background: #b8941f;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--text-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-alt {
+            background: var(--cream);
+        }
+
+        /* Contact section custom colors */
+        #contact.section.section-alt {
+            background: #2d5f3f;
+        }
+        #contact .section-title {
+            color: #ffffff;
+        }
+        #contact .section-subtitle {
+            color: rgba(255,255,255,0.85);
+        }
+        /* Set specific labels to orange (using accent gold) */
+        #contact label[for="name"],
+        #contact label[for="phone"],
+        #contact label[for="subject"],
+        #contact label[for="email"],
+        #contact label[for="message"] {
+            color: var(--accent-gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            border-top: 4px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary-green);
+            background: transparent;
+            color: var(--primary-green);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-light);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-category {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 60vh;
+            object-fit: cover;
+        }
+
+        .modal-info {
+            padding: 2rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+
+        .read-more {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Events Section */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .event-date {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent-gold);
+            color: white;
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .event-day {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .event-month {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .event-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 1.5rem;
+        }
+
+        .event-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .event-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .event-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-green);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit:hover {
+            background: var(--secondary-green);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Scroll to Top */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gold);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: var(--transition);
+                box-shadow: var(--shadow-medium);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .features-grid,
+            .news-grid,
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .hero-content {
+                padding: 0 1rem;
+            }
+
+            .btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .modal-content {
+                max-width: 95vw;
+                max-height: 95vh;
+            }
+
+            .modal-info {
+                padding: 1rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .navbar,
+            .scroll-to-top,
+            .hero-buttons,
+            .modal {
+                display: none !important;
+            }
+
+            .hero {
+                height: auto;
+                padding: 2rem 0;
+            }
+
+            body {
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+        }
+
+        /* High Contrast Mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary-green: #000000;
+                --secondary-green: #333333;
+                --accent-gold: #000000;
+                --text-dark: #000000;
+                --text-light: #333333;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo" aria-label="Hamro Laukahi">
+                <span>Hamro Laukahi</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <!-- <li><a href="#news" class="nav-link">News</a></li> -->
+                <li><a href="#events" class="nav-link">Events</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge"> Welcome to Nepal</div>
+            <h1 class="hero-title">Hamro Laukahi</h1>
+            <h2 class="hero-subtitle">हाम्रो लौकाही</h2>
+            <p class="hero-description">
+                Experience the authentic beauty of Nepal in our serene village where ancient traditions 
+                blend harmoniously with modern aspirations. Discover breathtaking landscapes, rich culture, 
+                and the warmest hospitality.
+            </p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">
+                    <i class="fas fa-compass"></i>
+                    Explore village
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i>
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">About Our Village</div>
+                <h2 class="section-title">Discover Hamro Laukahi</h2>
+                <p class="section-subtitle">
+                    A picturesque village nestled in the heart of Nepal, where ancient traditions 
+                    blend harmoniously with modern aspirations and natural beauty surrounds every corner.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>हाम्रो सुन्दर गाउँ | Our Beautiful Village</h3>
+                    <p>
+                        Hamro Laukahi (हाम्रो लौकाही) is more than just a village—it's a living testament 
+                        to Nepal's rich cultural heritage and natural splendor. Located in the pristine 
+                        hills of Nepal, our community has thrived for generations, maintaining a perfect 
+                        balance between preserving ancient traditions and embracing modern progress.
+                    </p>
+                   
+                    <p>
+                        <strong>स्वागतम् | Welcome</strong> to experience authentic Nepali village life, 
+                        where every sunrise brings new opportunities and every sunset tells stories of 
+                        our ancestors. Here, hospitality isn't just a tradition—it's a way of life.
+                    </p>
+
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Families</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Years History</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Festivals</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <img src="paani.jpg" 
+                         alt="Beautiful view of  Hamro Laukahi paani tanki" 
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section section-alt" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Village Features</div>
+                <h2 class="section-title">What Makes Us Special</h2>
+                <p class="section-subtitle">
+                    Discover the unique aspects that make Hamro Laukahi a remarkable place to live, 
+                    visit, and experience authentic Nepali culture.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Organic Agriculture</h3>
+                    <p>
+                        Our village practices sustainable farming with organic methods, producing fresh 
+                        vegetables, grains, and herbs that nourish both body and soul while preserving 
+                        the environment for future generations.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education Hub</h3>
+                    <p>
+                        Modern educational facilities combined with traditional knowledge systems ensure 
+                        our children receive the best of both worlds, preparing them for a bright future 
+                        while staying connected to their roots.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Spirit</h3>
+                    <p>
+                        Strong community bonds where neighbors support each other through festivals, 
+                        harvests, and daily life challenges. Our unity is our strength, and together 
+                        we build a better tomorrow.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>Natural Beauty</h3>
+                    <p>
+                        Surrounded by pristine forests, crystal-clear streams, and majestic mountain 
+                        views that inspire peace and tranquility. Nature is our greatest treasure and 
+                        we are its devoted guardians.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Modern Connectivity</h3>
+                    <p>
+                        High-speed internet and modern infrastructure while maintaining our traditional 
+                        village charm and simplicity. We embrace technology that enhances our lives 
+                        without compromising our values.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Healthcare & Wellness</h3>
+                    <p>
+                        Access to quality healthcare services and traditional healing practices ensure 
+                        the wellbeing of all residents. We believe in holistic health that nurtures 
+                        both body and spirit.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Photo Gallery</div>
+                <h2 class="section-title">Life in Laukahi</h2>
+                <p class="section-subtitle">
+                    Explore the beauty, culture, and daily life of our village through these 
+                    captivating images that tell the story of our community.
+                </p>
+            </div>
+
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="nature">Nature</button>
+                <button class="filter-btn" data-filter="culture">Culture</button>
+                <button class="filter-btn" data-filter="people">People</button>
+                <button class="filter-btn" data-filter="Temple">Temple</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="agriculture">Agriculture</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Events Section -->
+    <section class="section" id="events">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Upcoming Events</div>
+                <h2 class="section-title">Events Calendar</h2>
+                <p class="section-subtitle">
+                    Join us in celebrating our rich culture and community spirit through various 
+                    festivals, meetings, and special occasions throughout the year.
+                </p>
+            </div>
+
+            <div class="events-grid" id="eventsGrid">
+                <!-- Events will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Get In Touch</div>
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">
+                    We'd love to hear from you! Whether you're planning a visit, have questions, 
+                    or want to connect with our community, don't hesitate to reach out.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Address | ठेगाना</h4>
+                            <p>
+                                Laukahi Village, Nepal<br>
+                                लौकाही गाउँ, नेपाल<br>
+                                Postal Code: 44600
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone | फोन</h4>
+                            <p>
+                                +977-XXX-XXXXX<br>
+                                Village Office: +977-XXX-XXXXX<br>
+                                Emergency: +977-XXX-XXXXX
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email | इमेल</h4>
+                            <p>
+                                info@hamrolaukahi.com<br>
+                                village@laukahi.gov.np<br>
+                                tourism@hamrolaukahi.com
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Office Hours | कार्यालय समय</h4>
+                            <p>
+                                Sunday - Friday: 10:00 AM - 5:00 PM<br>
+                                आइतबार - शुक्रबार: बिहान १० बजे - साँझ ५ बजे<br>
+                                Saturday: Closed
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm" data-endpoint="">
+                    <div class="form-group">
+                        <label for="name">Full Name | पूरा नाम *</label>
+                        <input type="text" id="name" name="name" required 
+                               placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address | इमेल ठेगाना *</label>
+                        <input type="email" id="email" name="email" required 
+                               placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number | फोन नम्बर</label>
+                        <input type="tel" id="phone" name="phone" 
+                               placeholder="+977-XXX-XXXXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject | विषय *</label>
+                        <input type="text" id="subject" name="subject" required 
+                               placeholder="What is this regarding?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message | सन्देश *</label>
+                        <textarea id="message" name="message" required 
+                                  placeholder="Please share your message, questions, or feedback..."></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message | सन्देश पठाउनुहोस्
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🏔️ Hamro Laukahi</h3>
+                    <p>
+                        हाम्रो लौकाही - A beautiful village in Nepal where tradition meets modernity. 
+                        Experience authentic Nepali culture, stunning landscapes, and warm hospitality.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#about">About Village</a></p>
+                    <p><a href="#features">Features</a></p>
+                    <p><a href="#gallery">Photo Gallery</a></p>
+                    <!-- <p><a href="#news">News & Updates</a></p> -->
+                    <p><a href="#events">Events Calendar</a></p>
+                    <p><a href="#contact">Contact Us</a></p>
+                </div>
+
+                
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📍 Laukahi Village, Nepal</p>
+                    <p>📞 +977-XXX-XXXXX</p>
+                    <p>✉️ info@hamrolaukahi.com</p>
+                    
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hamro Laukahi Village. All rights reserved. | सबै अधिकार सुरक्षित।</p>
+                <p>Made with ❤️ by Ajay Mandal</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div class="modal" id="galleryModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+                <div class="modal-meta">
+                    <span id="modalDate"></span> • 
+                    <span id="modalPhotographer"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Sample Data (use your own local images in public/images/)
+        const galleryData = [
+            {
+                id: 1,
+                title: "Birds Resting on Wires under Blue Sky",
+                image: "mg.jpg",
+                description: "Birds enjoying nature together.",
+                category: "Nature & Village Life",
+                photographer: "Harish Mandal"
+            },
+            {
+                id: 2,
+                title: "Learning place ",
+                image: "images8.jpg",
+                description: "Our bright and enthusiastic students who are the future of Laukahi.",
+                category: "Education & growth",
+                photographer: "Ankit Mandal"
+            },
+            {
+                id: 3,
+                title: "Mother's Love",
+                image: "image3.jpg",
+                description: "Calm sunset over fields with cow and calf.",
+                category: "village moments",
+                photographer: "Hitesh Mandal"
+            },
+            {
+                id: 4,
+                title: "Dashain Festival Celebration",
+                image: "images/village-04.jpg",
+                description: "Colorful celebrations bringing our community together in joy, tradition, and cultural harmony during the biggest festival of Nepal. Dashain represents renewal and family bonds.",
+                category: "culture",
+                date: "2024-02-01",
+                photographer: "Your Name"
+            },
+            {
+                id: 5,
+                title: "Birds Resting on Wires under Blue Sky",
+                image: "mg.jpg",
+                description:"Birds enjoying nature together",
+                // date: "2024-02-05",
+                photographer: "Your Name"
+            },
+            {
+                id: 6,
+                title: "Community Meeting",
+                image: "images/village-06.jpg",
+                description: "Village elders and community members gathering to discuss important matters and make collective decisions for our village's future development and welfare.",
+                category: "people",
+                date: "2024-02-10",
+                photographer: "Your Name"
+            },
+            {
+                id: 7,
+                title: "Traditional Dance Performance",
+                image: "image1.jpg",
+                description: "Cultural performances that preserve our rich heritage and pass traditions to younger generations. These dances tell stories of our ancestors and their wisdom.",
+                category: "culture",
+                date: "2024-02-15",
+                photographer: "Your Name"
+            },
+            {
+                id: 8,
+                title: "Village Temple",
+                image: "image5.jpg",
+                description: "Sacred spaces where our community gathers for spiritual reflection and cultural ceremonies.",
+                category: "Temple",
+                photographer: "Rahul Mandal"
+            },
+            {
+                id: 9,
+                title: "Harvest Festival",
+                image: "images/village-09.jpg",
+                description: "Celebrating the bounty of our land during harvest season. This festival brings together farmers and families to give thanks for nature's gifts.",
+                category: "events",
+                date: "2024-02-25",
+                photographer: "Your Name"
+            },
+            {
+                id: 10,
+                title: "Village Elders",
+                image: "images/village-10.jpg",
+                description: "The wisdom keepers of our community. Our elders are living libraries of traditional knowledge, stories, and cultural practices.",
+                category: "people",
+                date: "2024-03-01",
+                photographer: "Your Name"
+            },
+            {
+                id: 11,
+                title: "Forest Trail",
+                image: "images/village-11.jpg",
+                description: "Peaceful walking trails through our pristine forests offer connection with nature and opportunities for meditation and reflection.",
+                category: "nature",
+                date: "2024-03-05",
+                photographer: "Your Name"
+            },
+            {
+                id: 12,
+                title: "Youth Cultural Program",
+                image: "images/village-12.jpg",
+                description: "Young people keeping our cultural traditions alive through music, dance, and storytelling. They are the bridge between our past and future.",
+                category: "events",
+                date: "2024-03-10",
+                photographer: "Your Name"
+            }
+        ];
+
+         const newsData = [
+            {
+                id: 1,
+                title: "New Community Center Opens in Laukahi",
+                excerpt: "A state-of-the-art community center has been inaugurated to serve as a hub for village activities and meetings.",
+                content: "The new community center, built with support from local government and community contributions, features modern facilities including a meeting hall, library, and computer center. This marks a significant milestone in our village's development journey.",
+                image: "images/village-10.jpg",
+                date: "2024-02-25",
+                author: "Village Development Committee",
+                category: "Infrastructure",
+                readTime: 3
+            },
+            {
+                id: 2,
+                title: "Organic Farming Initiative Shows Promising Results",
+                excerpt: "Local farmers report increased yields and better soil health after adopting organic farming methods.",
+                content: "The organic farming initiative launched last year has shown remarkable success. Farmers have reported 30% increase in crop yields while maintaining soil health. The program includes training on natural fertilizers and pest control methods.",
+                image: "images/village-03.jpg",
+                date: "2024-02-20",
+                author: "Agricultural Committee",
+                category: "Agriculture",
+                readTime: 4
+            },
+            {
+                id: 3,
+                title: "Digital Literacy Program Launched for Seniors",
+                excerpt: "A new program aims to bridge the digital divide by teaching technology skills to elderly community members.",
+                content: "The digital literacy program, supported by young volunteers, teaches basic computer skills, internet usage, and smartphone applications to senior citizens. This initiative ensures no one is left behind in our digital transformation.",
+                image: "images/village-02.jpg",
+                date: "2024-02-15",
+                author: "Education Committee",
+                category: "Education",
+                readTime: 3
+            },
+            {
+                id: 4,
+                title: "Tourism Infrastructure Development Begins",
+                excerpt: "New hiking trails and visitor facilities are being developed to promote sustainable tourism in the village.",
+                content: "The tourism development project includes construction of eco-friendly guest houses, marked hiking trails, and information centers. This initiative aims to showcase our natural beauty while providing economic opportunities for locals.",
+                image: "images/village-05.jpg",
+                date: "2024-02-10",
+                author: "Tourism Board",
+                category: "Tourism",
+                readTime: 5
+            },
+            {
+                id: 5,
+                title: "Youth Leadership Program Graduates First Batch",
+                excerpt: "Twenty young villagers complete comprehensive leadership training program focused on community development.",
+                content: "The youth leadership program has successfully graduated its first batch of 20 participants. The program covered topics including project management, community organizing, and sustainable development practices.",
+                image: "images/village-02.jpg",
+                date: "2024-02-05",
+                author: "Youth Committee",
+                category: "Education",
+                readTime: 4
+            },
+            {
+                id: 6,
+                title: "Traditional Craft Revival Project Launched",
+                excerpt: "Initiative to preserve and promote traditional handicrafts provides new income opportunities for artisans.",
+                content: "The craft revival project aims to document, preserve, and promote traditional handicrafts of our region. Local artisans will receive training in modern marketing techniques while maintaining authentic crafting methods.",
+                image: "images/village-07.jpg",
+                date: "2024-01-30",
+                author: "Cultural Committee",
+                category: "Culture",
+                readTime: 3
+            }
+        ];
+
+        const eventsData = [
+            {
+                id: 1,
+                title: "Tihar Festival Celebration",
+                description: "Join us for the festival of lights with traditional music, dance, and delicious food. Experience the joy and warmth of Nepali culture.",
+                date: "2024-11-15",
+                time: "6:00 PM",
+                location: "Village Community Center",
+                category: "festival",
+                image: "images/village-04.jpg"
+            },
+            {
+                id: 2,
+                title: "Organic Farming Workshop",
+                description: "Learn sustainable farming techniques from experienced local farmers. Topics include composting, natural pest control, and crop rotation.",
+                date: "2024-11-20",
+                time: "9:00 AM",
+                location: "Agricultural Training Center",
+                category: "educational",
+                image: "images/village-03.jpg"
+            },
+            {
+                id: 3,
+                title: "Village Development Meeting",
+                description: "Monthly community meeting to discuss ongoing projects, budget allocation, and future development plans. All residents welcome.",
+                date: "2024-11-25",
+                time: "2:00 PM",
+                location: "Village Office",
+                category: "meeting",
+                image: "images/village-10.jpg"
+            },
+            {
+                id: 4,
+                title: "Traditional Dance Competition",
+                description: "Annual dance competition featuring traditional Nepali folk dances. Prizes for best performance in different age categories.",
+                date: "2024-12-01",
+                time: "4:00 PM",
+                location: "Village Square",
+                category: "cultural",
+                image: "images/village-07.jpg"
+            },
+            {
+                id: 5,
+                title: "Health Camp & Medical Checkup",
+                description: "Free health screening and medical consultation by visiting doctors. Basic medicines and health education materials provided.",
+                date: "2024-12-05",
+                time: "10:00 AM",
+                location: "Health Post",
+                category: "health",
+                image: "images/village-10.jpg"
+            },
+            {
+                id: 6,
+                title: "Youth Football Tournament",
+                description: "Inter-village football tournament for youth aged 16-25. Registration open for teams. Trophies and prizes for winners.",
+                date: "2024-12-10",
+                time: "1:00 PM",
+                location: "Village Football Ground",
+                category: "sports",
+                image: "images/village-02.jpg"
+            }
+        ];
+
+        // DOM Elements
+        const loadingScreen = document.getElementById('loadingScreen');
+        const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        const galleryGrid = document.getElementById('galleryGrid');
+        // const newsGrid = document.getElementById('newsGrid');
+        const eventsGrid = document.getElementById('eventsGrid');
+        const galleryModal = document.getElementById('galleryModal');
+        const modalClose = document.getElementById('modalClose');
+        const contactForm = document.getElementById('contactForm');
+
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading screen
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 1500);
+
+            // Initialize components
+            initNavigation();
+            initScrollEffects();
+            initGallery();
+            initEvents();
+            initContactForm();
+            initModal();
+            initAnimations();
+        });
+
+        // Navigation functionality
+        function initNavigation() {
+            // Mobile menu toggle
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking on links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+
+                    // Close mobile menu
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+
+                    // Update active link
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+
+            // Update active nav link on scroll
+            window.addEventListener('scroll', updateActiveNavLink);
+        }
+
+        // Scroll effects
+        function initScrollEffects() {
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+
+                // Navbar scroll effect
+                if (scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                // Scroll to top button
+                if (scrollY > 500) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            });
+
+            // Scroll to top functionality
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Update active navigation link based on scroll position
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+                    if (navLink) navLink.classList.add('active');
+                }
+            });
+        }
+
+        // Gallery functionality
+        function initGallery() {
+            renderGallery(galleryData);
+
+            const normalize = (value) => (value || '').toString().trim().toLowerCase();
+
+            // Filter functionality
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = normalize(btn.getAttribute('data-filter'));
+                    
+                    // Update active filter button
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Filter gallery items (robust to mixed/missing categories)
+                    const filteredData = filter === 'all' 
+                        ? galleryData 
+                        : galleryData.filter(item => normalize(item.category) === filter || normalize(item.category).includes(filter));
+                    
+                    renderGallery(filteredData);
+                });
+            });
+        }
+
+        // Render gallery items
+        function renderGallery(data) {
+            galleryGrid.innerHTML = '';
+            
+            data.forEach(item => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                const categorySafe = (item.category && item.category.toString()) || 'Uncategorized';
+                galleryItem.setAttribute('data-category', categorySafe);
+                galleryItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">${item.title}</div>
+                        <div class="gallery-category">${categorySafe}</div>
+                    </div>
+                `;
+
+                galleryItem.addEventListener('click', () => openModal(item));
+                galleryGrid.appendChild(galleryItem);
+            });
+        }
+
+    
+
+        // Events functionality
+        function initEvents() {
+            renderEvents(eventsData);
+        }
+
+        // Render events
+        function renderEvents(data) {
+            eventsGrid.innerHTML = '';
+            
+            data.forEach(item => {
+                const eventCard = document.createElement('div');
+                eventCard.className = 'event-card';
+                
+                const eventDate = new Date(item.date);
+                const day = eventDate.getDate();
+                const month = eventDate.toLocaleDateString('en-US', { month: 'short' });
+                
+                eventCard.innerHTML = `
+                    <div class="event-date">
+                        <div class="event-day">${day}</div>
+                        <div class="event-month">${month}</div>
+                    </div>
+                    <img src="${item.image}" alt="${item.title}" class="event-image" loading="lazy">
+                    <div class="event-content">
+                        <h3 class="event-title">${item.title}</h3>
+                        <div class="event-details">
+                            <div class="event-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>${item.time}</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${item.location}</span>
+                            </div>
+                            <div class="event-detail">
+                                <i class="fas fa-tag"></i>
+                                <span>${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</span>
+                            </div>
+                        </div>
+                        <p class="event-description">${item.description}</p>
+                    </div>
+                `;
+                eventsGrid.appendChild(eventCard);
+            });
+        }
+
+        // Modal functionality
+        function initModal() {
+            modalClose.addEventListener('click', closeModal);
+            galleryModal.addEventListener('click', (e) => {
+                if (e.target === galleryModal) {
+                    closeModal();
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && galleryModal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+
+            // Handle browser navigation to close/open modal
+            window.addEventListener('popstate', () => {
+                if (!location.hash.startsWith('#photo-') && galleryModal.classList.contains('active')) {
+                    // If leaving a photo state, ensure modal is closed
+                    galleryModal.classList.remove('active');
+                    document.body.style.overflow = 'unset';
+                }
+            });
+        }
+
+        // Open modal with gallery item details
+        function openModal(item) {
+            document.getElementById('modalImage').src = item.image;
+            document.getElementById('modalTitle').textContent = item.title;
+            document.getElementById('modalDescription').textContent = item.description;
+            document.getElementById('modalDate').textContent = formatDate(item.date);
+            document.getElementById('modalPhotographer').textContent = `Photo by ${item.photographer}`;
+            
+            galleryModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Push state so Back exits the modal
+            const id = item.id || Math.random().toString(36).slice(2);
+            history.pushState({ modalOpen: true, photoId: id }, '', `#photo-${id}`);
+        }
+
+        // Close modal
+        function closeModal() {
+            // If we navigated into a modal state, go back so Back/Forward works naturally
+            if (location.hash.startsWith('#photo-')) {
+                history.back();
+            }
+            galleryModal.classList.remove('active');
+            document.body.style.overflow = 'unset';
+        }
+
+        // Contact form functionality
+        function initContactForm() {
+            const FORM_ENDPOINT = (contactForm && contactForm.dataset && contactForm.dataset.endpoint) || '';
+
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(contactForm);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const phone = formData.get('phone');
+                const subject = formData.get('subject');
+                const message = formData.get('message');
+
+                // Basic validation
+                if (!name || !email || !subject || !message) {
+                    alert('कृपया सबै आवश्यक फिल्डहरू भर्नुहोस् | Please fill in all required fields.');
+                    return;
+                }
+
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('कृपया मान्य इमेल ठेगाना प्रविष्ट गर्नुहोस् | Please enter a valid email address.');
+                    return;
+                }
+
+                const submitBtn = contactForm.querySelector('.form-submit');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+
+                try {
+                    if (FORM_ENDPOINT) {
+                        // Send to configured endpoint (e.g., Formspree) using FormData
+                        const response = await fetch(FORM_ENDPOINT, {
+                            method: 'POST',
+                            body: formData,
+                            headers: { 'Accept': 'application/json' }
+                        });
+
+                        if (response.ok) {
+                            alert('धन्यवाद! तपाईंको सन्देश सफलतापूर्वक पठाइएको छ। | Thank you! Your message has been sent.');
+                            contactForm.reset();
+                        } else {
+                            const errorText = await response.text();
+                            throw new Error(errorText || 'Submission failed');
+                        }
+                    } else {
+                        // Fallback: open email client
+                        const to = 'info@hamrolaukahi.com';
+                        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone || ''}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(message)}`;
+                        const mailtoUrl = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
+                        window.location.href = mailtoUrl;
+                    }
+                } catch (err) {
+                    console.error('Contact form error:', err);
+                    alert('सन्देश पठाउन समस्या भयो। कृपया पछि फेरि प्रयास गर्नुहोस्। | There was a problem sending your message. Please try again later.');
+                } finally {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        // Initialize scroll animations
+        function initAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.querySelectorAll('.feature-card, .news-card, .event-card, .contact-item').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Utility function to format dates
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Performance optimization: Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Service Worker for offline functionality (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // Analytics and performance monitoring
+        window.addEventListener('load', () => {
+            // Log page load time
+            const loadTime = performance.now();
+            console.log(`Page loaded in ${loadTime.toFixed(2)}ms`);
+            
+            // Track user interactions
+            document.addEventListener('click', (e) => {
+                if (e.target.matches('a, button')) {
+                    console.log(`User clicked: ${e.target.textContent || e.target.getAttribute('aria-label')}`);
+                }
+            });
+        });
+
+        // Error handling
+        window.addEventListener('error', (e) => {
+            console.error('JavaScript error:', e.error);
+        });
+
+        // Accessibility improvements
+        document.addEventListener('keydown', (e) => {
+            // Skip to main content with Tab key
+            if (e.key === 'Tab' && !e.shiftKey && document.activeElement === document.body) {
+                const mainContent = document.querySelector('main') || document.querySelector('#about');
+                if (mainContent) {
+                    mainContent.focus();
+                    e.preventDefault();
+                }
+            }
+        });
+
+        console.log('🏔️ Hamro Laukahi website loaded successfully!');
+        console.log('✅ All features initialized: Navigation, Gallery, News, Events, Contact Form');
+        console.log('🚀 Performance optimized with lazy loading and animations');
+        console.log('♿ Accessibility features enabled');
+        console.log('📱 Fully responsive design active');
+    </script>
+</body>
+</html>
+
